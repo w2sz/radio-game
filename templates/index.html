@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<title>Radio Game</title>
+<head>
+    
+</head>
+<body>
+    <h1>Radio Game</h1>
+    <button id="load_location" onclick="getLocation()">Load Location</button>
+    <form action="/contact" method="POST">
+        <label for="callsign">Callsign: </label>
+        <input id="callsign" name="callsign" size="6" maxlength="6" required/><br>
+        <label for="location">Location: </label>
+        <input id="location" name="location" readonly="readonly" size="40" required/><br>
+        <label for="indoors">Indoors: </label>
+        <input id="indoors" name="indoors" type="checkbox"/><br>
+        <input id='indoorsh' type='hidden' value='No' name='indoors'>
+        <label for="low_power">Under 5 watts: </label>
+        <input id="low_power" name="low_power" type="checkbox"/><br>
+        <input id='low_powerh' type='hidden' value='No' name='low_power'>
+        <input type="submit" value="Submit" id='submit'>
+    </form>
+    <script>
+        const loc = document.getElementById("location");
+        const submit = document.getElementById("submit");
+
+
+        function getLocation() {
+            console.log('getting location')
+            submit.disabled = true
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+            } else { 
+                loc.value = "Geolocation not supported";
+            }
+            submit.disabled = false
+        }
+
+        function success(position) {
+          loc.value = position.coords.latitude + 
+          " " + position.coords.longitude;
+        }
+
+        function error() {
+          alert("Error retrieving position data");
+        }
+    </script>
+</body>
+</html>
