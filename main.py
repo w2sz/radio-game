@@ -47,13 +47,13 @@ def contact():
         lat = float(lat)
         lon = float(lon)
 
-        # lat range is -73.6677 to -73.685
-        # lon range is 42.725 to 42.734
+        # lon range is -73.66 to -73.685
+        # lat range is 42.725 to 42.734
 
-        lon += 73.6677
+        lon += 73.66
         lat -= 42.725
 
-        lon /= 73.685 - 73.6677
+        lon /= 73.685 - 73.66
         lat /= 42.734 - 42.725
 
         lon *= -len(alphabet)
