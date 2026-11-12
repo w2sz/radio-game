@@ -1,5 +1,6 @@
 import flask
 import json
+import time
 import os
 
 app = flask.Flask(__name__)
@@ -75,7 +76,8 @@ def contact():
             'contact_callsign': contact_callsign,
             'location': lon + str(lat),
             'indoors': indoors,
-            'low_power': low_power
+            'low_power': low_power,
+            'time': time.time()
         })
         with open('logs.json', 'w') as f:
             json.dump(data, f, indent = 4)
