@@ -8,8 +8,10 @@
     <h1>Radio Game</h1>
     <button id="load_location" onclick="getLocation()">Load Location</button>
     <form action="/contact" method="POST">
-        <label for="callsign">Callsign: </label>
-        <input id="callsign" name="callsign" size="6" maxlength="6" required/><br>
+        <label for="src_callsign">Your Callsign: </label>
+        <input id="src_callsign" name="src_callsign" size="6" maxlength="6" required/><br>
+        <label for="contact_callsign">Contact Callsign: </label>
+        <input id="contact_callsign" name="contact_callsign" size="6" maxlength="6" required/><br>
         <label for="location">Location: </label>
         <input id="location" name="location" readonly="readonly" size="40" required/><br>
         <label for="indoors">Indoors: </label>

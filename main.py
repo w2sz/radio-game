@@ -27,11 +27,13 @@ def index():
 @app.route('/contact', methods=["POST"])
 def contact():
     try:
-        callsign = flask.request.form['callsign']
+        src_callsign = flask.request.form['src_callsign']
+        contact_callsign = flask.request.form['contact_callsign']
         location = flask.request.form['location']
         indoors = flask.request.form['indoors']
         low_power = flask.request.form['low_power'] 
-        print(callsign)
+        print(src_callsign)
+        print(contact_callsign)
         print(location)
         print(indoors)
         print(low_power)
@@ -69,8 +71,8 @@ def contact():
         lon = alphabet[lon]
 
         data.append({
-            'callsign': callsign,
-            #'location': [lat, lon],
+            'src_callsign': src_callsign,
+            'contact_callsign': contact_callsign,
             'location': lon + str(lat),
             'indoors': indoors,
             'low_power': low_power
@@ -83,4 +85,4 @@ def contact():
         return flask.redirect('/?success=false')
 
 if __name__ == '__main__':
-    app.run()
+    app.run("0.0.0.0")
