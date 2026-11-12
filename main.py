@@ -23,7 +23,9 @@ with open('logs.json', 'r') as f:
 
 @app.route('/')
 def index():
-    return flask.render_template("./index.html")
+    success = flask.request.args.get('success')
+    print(success)
+    return flask.render_template('./index.html', success=success)
 
 @app.route('/contact', methods=["POST"])
 def contact():

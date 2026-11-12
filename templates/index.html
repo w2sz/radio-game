@@ -22,6 +22,13 @@
         <input id='low_powerh' type='hidden' value='No' name='low_power'>
         <input type="submit" value="Submit" id='submit'>
     </form>
+    {% block body %}
+    {% if success == 'true' %}
+    <p>Contact Logged Successfully</p>
+    {% elif success == 'false' %}
+    <p>Error Logging Contact</p>
+    {% endif %}
+    {% endblock %}
     <script>
         const loc = document.getElementById("location");
         const submit = document.getElementById("submit");
